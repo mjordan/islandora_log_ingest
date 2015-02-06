@@ -1,0 +1,6 @@
+name = "Islandora Log Ingest"
+description = "Logs ingesting of objects."
+package = Islandora Tools
+dependencies[] = islandora
+core = 7.x
+configure = admin/islandora/tools/log_ingest
