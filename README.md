@@ -12,7 +12,18 @@ This utility module logs identifier information on objects as they are ingested 
 * Identifiers is a sting containing all of the values of the dc:identifier elemements in an object's DC datastream. If the DC datastream contains more than one dc:identifier element, the values from all dc:identifier elements are concatenated using a delimiter defined in the admin settings. If dc:identifier is empty, an empty string will be written to the log.
 * PID is the PID of the object being ingested.
 
-Its purpose it to provide a simple way of relating PIDs to identifiers defined in incoming objects' metadata datastreams. This log can then be used in custom Tuque scripts or other contexts.
+Its purpose it to provide a simple way of relating PIDs to identifiers defined in incoming objects' metadata datastreams. This log can then be used in custom Tuque scripts or other contexts. A sample log file where the prefix is 'foo' and the entry delimiter is '|' is:
+
+```
+foo|local: mylib01020304|islandora:160
+foo|local: mylib01020308|islandora:161
+foo||islandora:162
+foo|local: mylib01020322|islandora:163
+foo|local: mylib01020324|islandora:164
+foo|local: mylib01020325|islandora:165
+foo|local: mylib01020330|islandora:166
+```
+Note that the idenfifier is missing in the third entry because the ingested object's dc:identifier element was blank. The 'local:' string is part of the identifer as produced by Islandora (in this case, by the default MODS form that comes with the Basic Image Solution Pack).
 
 ## Configuration
 
