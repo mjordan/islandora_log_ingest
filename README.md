@@ -14,11 +14,13 @@ This utility module logs identifier information on objects as they are ingested 
 
 Its purpose it to provide a simple way of relating PIDs to identifiers defined in incoming objects' metadata datastreams.
 
+## Configuration
+
+To add your own log entry prefix, define your delimiters, or change the default log file location from [Drupal install directory]/sites/default/files/islandora_log_ingest.txt, visit admin/islandora/tools/log_ingest.
+
 ## Usage
 
-Install and enable the module. To add your own log entry prefix or to change the default log file location from [Drupal install directory]/sites/default/files/islandora_log_ingest.txt, visit admin/islandora/tools/log_ingest.
-
-All objects ingested after the module is endabled will be logged.
+Install and enable (and configure) the module. All objects ingested after the module is endabled will be logged.
 
 ## Maintainer
 
