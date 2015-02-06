@@ -2,7 +2,7 @@
 
 ## Overview
 
-This utility module logs identifier information on objects as they are ingested into an Islandora repository. It writes a tab-(or other delimiter)-separated log file that contains the following:
+This utility module logs identifier information on objects as they are ingested into an Islandora repository. It writes a tab-(or other delimiter)-separated log file that contains the following columns:
 
 ```
 [prefix] identifiers PID
@@ -12,7 +12,7 @@ This utility module logs identifier information on objects as they are ingested 
 * Identifiers is a sting containing all of the values of the dc:identifier elemements in an object's DC datastream. If the DC datastream contains more than one dc:identifier element, the values from all dc:identifier elements are concatenated using a delimiter defined in the admin settings. If dc:identifier is empty, an empty string will be written to the log.
 * PID is the PID of the object being ingested.
 
-Its purpose it to provide a simple way of relating PIDs to identifiers defined in incoming objects' metadata datastreams.
+Its purpose it to provide a simple way of relating PIDs to identifiers defined in incoming objects' metadata datastreams. This log can then be used in custom Tuque scripts or other contexts.
 
 ## Configuration
 
