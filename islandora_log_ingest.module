@@ -61,7 +61,6 @@ function islandora_log_ingest_admin_settings() {
     '#description' => t("String used to separate repeated dc:identifier values."),
     '#maxlength' => 255,
   );
-
   return system_settings_form($form);
 }
 
@@ -92,14 +91,14 @@ function islandora_log_ingest_islandora_object_ingested(FedoraObject $islandora_
  * Parses an object's dc:identifier elements and returns their values.
  *
  * @param string $dc
- *   The content of the 'DC' datastream.
+ *   The 'DC' datastream.
  *
  * @param string $pid
  *   The PID of the Islandora object just ingested.
  *
  * return string
  *   A string listing the values in dc:identifier, concatenated
- *   by a delimter if there are more than one dc:identifier.
+ *   by a configurable delimter if there are more than one dc:identifier.
  */
 function islandora_log_ingest_get_identifer($dc, $pid) {
   $id_delim = variable_get('islandora_log_ingest_id_delimiter', ';');
