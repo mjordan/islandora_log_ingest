@@ -71,7 +71,7 @@ function islandora_log_ingest_islandora_object_ingested(FedoraObject $islandora_
   $identifiers = islandora_log_ingest_get_identifer($islandora_object['DC'], $islandora_object->id);
   $prefix = variable_get('islandora_log_ingest_entry_prefix', '');
   $log_path = variable_get('islandora_log_ingest_log_file_path', '/tmp/islanodra_log_ingest.txt');
-  $enty = array();
+  $entry = array();
   $delimiter = variable_get('islandora_log_ingest_entry_delimiter', '');
   if (strlen($prefix)) {
     $entry[] = $prefix;
