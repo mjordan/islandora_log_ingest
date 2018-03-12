@@ -44,6 +44,12 @@ function islandora_log_ingest_admin_settings() {
       each log entry, to identify a batch load, for example."),
     '#maxlength' => 255,
   );
+  $form['islandora_log_ingest_include_timestamp'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include timestamp'),
+    '#default_value' => variable_get('islandora_log_ingest_include_timestamp', 1),
+    '#description' => t('Check this option if you want to include a timestamp in the log.'),
+  );
   $form['islandora_log_ingest_entry_delimiter'] = array(
     '#title' => t('Log entry delimiter'),
     '#type' => 'textfield',
@@ -78,6 +84,11 @@ function islandora_log_ingest_islandora_object_ingested(FedoraObject $islandora_
   }
   $entry[] = $identifiers;
   $entry[] = $islandora_object->id;
+
+  if (variable_get('islandora_log_ingest_include_timestamp', 1)) {
+    array_unshift($entry, date("Y-m-d H:i:s"));
+  }
+
   if (!strlen($delimiter)) {
     $entry_string = implode("\t", $entry) . "\n";
   }
